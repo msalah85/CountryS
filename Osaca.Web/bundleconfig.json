@@ -1,0 +1,596 @@
+[
+  {
+    "outputFileName": "Scripts/sys/DefaultGridFilterManager.min.js",
+    "inputFiles": [
+      "Scripts/sys/DefaultGridFilterManager.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/invoices-list.min.js",
+    "inputFiles": [
+      "Scripts/sys/invoices-list.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/client-payments.min.js",
+    "inputFiles": [
+      "Scripts/sys/client-payments.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/InvoicesAdd.min.js",
+    "inputFiles": [
+      "Scripts/sys/InvoicesAdd.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/transportations.min.js",
+    "inputFiles": [
+      "Scripts/sys/transportations.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/dataTables/datatables.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/dataTables/datatables.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/dataTables/datatables.min.css",
+    "inputFiles": [
+      "Content/sys/assets/js/dataTables/datatables.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/dataTables/extensions/Buttons/js/buttons.bootstrap.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/dataTables/extensions/Buttons/js/buttons.bootstrap.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/dataTables/extensions/Buttons/js/buttons.colVis.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/dataTables/extensions/Buttons/js/buttons.colVis.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/dataTables/extensions/Buttons/js/buttons.flash.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/dataTables/extensions/Buttons/js/buttons.flash.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/dataTables/extensions/Buttons/js/buttons.foundation.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/dataTables/extensions/Buttons/js/buttons.foundation.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/dataTables/extensions/Buttons/js/buttons.html5.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/dataTables/extensions/Buttons/js/buttons.html5.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/dataTables/extensions/Buttons/js/buttons.jqueryui.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/dataTables/extensions/Buttons/js/buttons.jqueryui.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/dataTables/extensions/Buttons/js/buttons.print.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/dataTables/extensions/Buttons/js/buttons.print.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/dataTables/extensions/Buttons/js/dataTables.buttons.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/dataTables/extensions/Buttons/js/dataTables.buttons.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/dataTables/extensions/Select/js/dataTables.select.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/dataTables/extensions/Select/js/dataTables.select.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/ace-extra.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/ace-extra.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/css/bootstrap-datepicker3.min.css",
+    "inputFiles": [
+      "Content/sys/assets/css/bootstrap-datepicker3.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/css/ace-fonts.min.css",
+    "inputFiles": [
+      "Content/sys/assets/css/ace-fonts.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/css/jquery.gritter.min.css",
+    "inputFiles": [
+      "Content/sys/assets/css/jquery.gritter.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/css/font-awesome.min.css",
+    "inputFiles": [
+      "Content/sys/assets/css/font-awesome.css"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/date-time/moment.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/date-time/moment.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/chosen.jquery.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/chosen.jquery.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/dataTables/jquery.dataTables.bootstrap.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/dataTables/jquery.dataTables.bootstrap.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/ace/elements.wysiwyg.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/ace/elements.wysiwyg.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/ace/elements.wizard.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/ace/elements.wizard.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/ace/elements.typeahead.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/ace/elements.typeahead.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/ace/elements.treeview.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/ace/elements.treeview.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/ace/elements.spinner.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/ace/elements.spinner.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/ace/elements.scroller.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/ace/elements.scroller.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/ace/elements.onpage-help.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/ace/elements.onpage-help.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/ace/elements.fileinput.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/ace/elements.fileinput.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/ace/elements.colorpicker.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/ace/elements.colorpicker.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/ace/elements.aside.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/ace/elements.aside.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/ace/ace.widget-on-reload.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/ace/ace.widget-on-reload.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/ace/ace.widget-box.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/ace/ace.widget-box.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/ace/ace.touch-drag.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/ace/ace.touch-drag.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/ace/ace.submenu-hover.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/ace/ace.submenu-hover.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/ace/ace.sidebar.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/ace/ace.sidebar.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/ace/ace.sidebar-scroll-2.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/ace/ace.sidebar-scroll-2.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/ace/ace.sidebar-scroll-1.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/ace/ace.sidebar-scroll-1.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/ace/ace.settings.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/ace/ace.settings.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/ace/ace.settings-skin.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/ace/ace.settings-skin.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/ace/ace.settings-rtl.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/ace/ace.settings-rtl.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/ace/ace.searchbox-autocomplete.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/ace/ace.searchbox-autocomplete.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/ace/ace.onpage-help.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/ace/ace.onpage-help.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/ace/ace.auto-padding.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/ace/ace.auto-padding.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/ace/ace.auto-container.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/ace/ace.auto-container.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/ace/ace.ajax-content.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/ace/ace.ajax-content.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/date-time/daterangepicker.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/date-time/daterangepicker.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/date-time/bootstrap-timepicker.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/date-time/bootstrap-timepicker.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/date-time/bootstrap-datetimepicker.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/date-time/bootstrap-datetimepicker.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/date-time/bootstrap-datepicker.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/date-time/bootstrap-datepicker.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/ace-require.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/ace-require.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/autosize.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/autosize.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/bootbox.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/bootbox.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/bootstrap-colorpicker.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/bootstrap-colorpicker.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/bootstrap-multiselect.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/bootstrap-multiselect.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/bootstrap-tag.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/bootstrap-tag.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/bootstrap-wysiwyg.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/bootstrap-wysiwyg.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/dropzone.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/dropzone.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/fullcalendar.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/fullcalendar.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/holder.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/holder.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/select2.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/select2.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/spin.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/spin.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/typeahead.jquery.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/typeahead.jquery.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/respond.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/respond.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/require.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/require.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/prettify.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/prettify.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/pace1.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/pace1.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/pace.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/pace.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/jquery1x.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/jquery1x.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/jquery.ui.touch-punch.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/jquery.ui.touch-punch.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/jquery.sparkline.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/jquery.sparkline.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/jquery.slimscroll.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/jquery.slimscroll.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/jquery.raty.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/jquery.raty.js"
+    ]
+  },
+  {
+    "outputFileName": "Content/sys/assets/js/jquery.nestable.min.js",
+    "inputFiles": [
+      "Content/sys/assets/js/jquery.nestable.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/InvoicesPrint.min.js",
+    "inputFiles": [
+      "Scripts/sys/InvoicesPrint.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/Common.min.js",
+    "inputFiles": [
+      "Scripts/sys/Common.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/client-summary.min.js",
+    "inputFiles": [
+      "Scripts/sys/client-summary.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/client-statement.min.js",
+    "inputFiles": [
+      "Scripts/sys/client-statement.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/DefaultGridManager.min.js",
+    "inputFiles": [
+      "Scripts/sys/DefaultGridManager.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/users-manager.min.js",
+    "inputFiles": [
+      "Scripts/sys/users-manager.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/expenses-manager.min.js",
+    "inputFiles": [
+      "Scripts/sys/expenses-manager.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/home-manager.min.js",
+    "inputFiles": [
+      "Scripts/sys/home-manager.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/expensetypes-manager.min.js",
+    "inputFiles": [
+      "Scripts/sys/expensetypes-manager.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/Outgoings.min.js",
+    "inputFiles": [
+      "Scripts/sys/Outgoings.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/Outgoing/OutgoingsAdd.min.js",
+    "inputFiles": [
+      "Scripts/sys/Outgoing/OutgoingsAdd.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/Outgoing/Outgoings.min.js",
+    "inputFiles": [
+      "Scripts/sys/Outgoing/Outgoings.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/balances.min.js",
+    "inputFiles": [
+      "Scripts/sys/balances.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/Documents/Documents-list.min.js",
+    "inputFiles": [
+      "Scripts/Documents/Documents-list.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/DataService.min.js",
+    "inputFiles": [
+      "Scripts/sys/DataService.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/defaultPage.min.js",
+    "inputFiles": [
+      "Scripts/sys/defaultPage.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/clients-list.min.js",
+    "inputFiles": [
+      "Scripts/sys/clients-list.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/banks-list.min.js",
+    "inputFiles": [
+      "Scripts/sys/banks-list.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/login.min.js",
+    "inputFiles": [
+      "Scripts/sys/login.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/transporter-payments.min.js",
+    "inputFiles": [
+      "Scripts/sys/transporter-payments.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/utilities.min.js",
+    "inputFiles": [
+      "Scripts/sys/utilities.js"
+    ]
+  },
+  {
+    "outputFileName": "Scripts/sys/imagesManager.min.js",
+    "inputFiles": [
+      "Scripts/sys/imagesManager.js"
+    ]
+  }
+]

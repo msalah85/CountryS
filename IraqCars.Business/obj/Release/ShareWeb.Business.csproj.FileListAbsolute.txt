@@ -1,0 +1,15 @@
+D:\MyWork\OSACA\OSACA\Implementation\Cargo\IraqCars.Business\bin\Release\ShareWeb.Business.dll.config
+D:\MyWork\OSACA\OSACA\Implementation\Cargo\IraqCars.Business\bin\Release\ShareWeb.Business.dll
+D:\MyWork\OSACA\OSACA\Implementation\Cargo\IraqCars.Business\bin\Release\ShareWeb.Business.pdb
+D:\MyWork\OSACA\OSACA\Implementation\Cargo\IraqCars.Business\bin\Release\Newtonsoft.Json.dll
+D:\MyWork\OSACA\OSACA\Implementation\Cargo\IraqCars.Business\obj\Release\ShareWeb.Business.csprojResolveAssemblyReference.cache
+D:\MyWork\OSACA\OSACA\Implementation\Cargo\IraqCars.Business\obj\Release\ShareWeb.Business.csproj.CoreCompileInputs.cache
+D:\MyWork\OSACA\OSACA\Implementation\Cargo\IraqCars.Business\obj\Release\ShareWeb.Business.dll
+D:\MyWork\OSACA\OSACA\Implementation\Cargo\IraqCars.Business\obj\Release\ShareWeb.Business.pdb
+C:\Users\Ibrahim Ayman\Desktop\Cargo\IraqCars.Business\bin\Release\ShareWeb.Business.dll.config
+C:\Users\Ibrahim Ayman\Desktop\Cargo\IraqCars.Business\bin\Release\ShareWeb.Business.dll
+C:\Users\Ibrahim Ayman\Desktop\Cargo\IraqCars.Business\bin\Release\ShareWeb.Business.pdb
+C:\Users\Ibrahim Ayman\Desktop\Cargo\IraqCars.Business\bin\Release\Newtonsoft.Json.dll
+C:\Users\Ibrahim Ayman\Desktop\Cargo\IraqCars.Business\obj\Release\ShareWeb.Business.csprojResolveAssemblyReference.cache
+C:\Users\Ibrahim Ayman\Desktop\Cargo\IraqCars.Business\obj\Release\ShareWeb.Business.dll
+C:\Users\Ibrahim Ayman\Desktop\Cargo\IraqCars.Business\obj\Release\ShareWeb.Business.pdb

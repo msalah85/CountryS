@@ -1,0 +1,14 @@
+D:\MyWork\OSACA\OSACA\Implementation\Cargo\IraqCars.Business\bin\Debug\ShareWeb.Business.dll.config
+D:\MyWork\OSACA\OSACA\Implementation\Cargo\IraqCars.Business\bin\Debug\ShareWeb.Business.dll
+D:\MyWork\OSACA\OSACA\Implementation\Cargo\IraqCars.Business\bin\Debug\ShareWeb.Business.pdb
+D:\MyWork\OSACA\OSACA\Implementation\Cargo\IraqCars.Business\bin\Debug\Newtonsoft.Json.dll
+D:\MyWork\OSACA\OSACA\Implementation\Cargo\IraqCars.Business\obj\Debug\ShareWeb.Business.csproj.CoreCompileInputs.cache
+D:\MyWork\OSACA\OSACA\Implementation\Cargo\IraqCars.Business\obj\Debug\ShareWeb.Business.dll
+D:\MyWork\OSACA\OSACA\Implementation\Cargo\IraqCars.Business\obj\Debug\ShareWeb.Business.pdb
+C:\Users\Ibrahim Ayman\Desktop\Cargo\IraqCars.Business\bin\Debug\ShareWeb.Business.dll.config
+C:\Users\Ibrahim Ayman\Desktop\Cargo\IraqCars.Business\bin\Debug\ShareWeb.Business.dll
+C:\Users\Ibrahim Ayman\Desktop\Cargo\IraqCars.Business\bin\Debug\ShareWeb.Business.pdb
+C:\Users\Ibrahim Ayman\Desktop\Cargo\IraqCars.Business\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Ibrahim Ayman\Desktop\Cargo\IraqCars.Business\obj\Debug\ShareWeb.Business.csprojResolveAssemblyReference.cache
+C:\Users\Ibrahim Ayman\Desktop\Cargo\IraqCars.Business\obj\Debug\ShareWeb.Business.dll
+C:\Users\Ibrahim Ayman\Desktop\Cargo\IraqCars.Business\obj\Debug\ShareWeb.Business.pdb

@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2010
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Osaca.Web", "http://localhost:54573", "{551AF319-25D9-4690-BFCF-93E29863152C}"
+	ProjectSection(WebsiteProperties) = preProject
+		UseIISExpress = "true"
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		ProjectReferences = "{d43b58a3-4e44-4bc6-a88f-ac94774c5ee5}|IraqCars.Business.dll;"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_54573"
+		Debug.AspNetCompiler.PhysicalPath = "Osaca.Web\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54573\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_54573"
+		Release.AspNetCompiler.PhysicalPath = "Osaca.Web\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54573\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		SlnRelativePath = "Osaca.Web\"
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShareWeb.Business", "IraqCars.Business\ShareWeb.Business.csproj", "{D43B58A3-4E44-4BC6-A88F-AC94774C5EE5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{551AF319-25D9-4690-BFCF-93E29863152C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{551AF319-25D9-4690-BFCF-93E29863152C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{551AF319-25D9-4690-BFCF-93E29863152C}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{551AF319-25D9-4690-BFCF-93E29863152C}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{D43B58A3-4E44-4BC6-A88F-AC94774C5EE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D43B58A3-4E44-4BC6-A88F-AC94774C5EE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D43B58A3-4E44-4BC6-A88F-AC94774C5EE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D43B58A3-4E44-4BC6-A88F-AC94774C5EE5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C2594EB1-C4AB-400B-A6A8-217EAAE0173A}
+	EndGlobalSection
+EndGlobal
