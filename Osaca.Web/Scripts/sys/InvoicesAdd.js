@@ -5,25 +5,6 @@
 
 var selfInviceAddManager;
 
-window.onload = function () {
-    debugger;
-    var _Amount = 0;
-    var IsVatable = false;
-    setTimeout(function () {
-        $('#listItems tbody tr').each(function (i, item) {
-            _Amount = $(this).children('td:eq(3)').find('input').val();
-            IsVatable = $(this).children('td:eq(3)').find('input').attr('data-IsVatable');
-            if (IsVatable == "true") {
-                $(this).children('td:eq(4)').find('input').val(_Amount * selfInviceAddManager.VAT);
-            }
-            else {
-                $(this).children('td:eq(4)').find('input').val("0.0");
-            }
-        });
-    }, 1000);
-};
-
-
 function onAmountChanged(e) {
     debugger;
     // read values of this current Row.
@@ -36,8 +17,7 @@ function onAmountChanged(e) {
 
         $(e).closest('tr').find('input')[2].value = newVAT.toFixed(2); // set new value to Vat textbox in this row.
     }
-    else
-    {
+    else {
         $(e).closest('tr').find('input')[2].value = numeral("0").format('0.0');
     }
 }
@@ -52,7 +32,7 @@ var pageManager = function () {
 
         Init = function () {
             // set buyers and shippers lists for binding.            
-            setFormProperties();
+            
 
             pageEvents();
             try {
@@ -60,7 +40,7 @@ var pageManager = function () {
             } catch (e) {
 
             }
-            
+
         },
         pageEvents = function () {
 
@@ -70,7 +50,7 @@ var pageManager = function () {
 
             // add client Expense to grid.
             $('#btnAddAmount').click(function (e) {
-                
+
                 e.preventDefault();
                 var expenseID = $('#ExpenseID').val();
                 if (expenseID !== '') {
@@ -112,7 +92,7 @@ var pageManager = function () {
 
             // update total
             $gridTable.delegate('tr input[type="number"]', 'keyup change', function (e) {
-                
+
                 // update vat expense by changing service charge expense value.
                 var _this = $(this),
                     expId = _this.attr('data-expid'),
@@ -121,7 +101,7 @@ var pageManager = function () {
                     updateVatInGrid = function (parentID, parentValue) {
                         // find/update all children VAT value = parentValue * 0.05.
 
-                       // $gridTable.find('tr input[data-parent-expid="' + parentID + '"]').val((parentValue * 0.05).toFixed(2));
+                        // $gridTable.find('tr input[data-parent-expid="' + parentID + '"]').val((parentValue * 0.05).toFixed(2));
                     };
                 onAmountChanged(_this);
                 if (expId && expValue)
@@ -144,7 +124,7 @@ var pageManager = function () {
                             + $(v).find('td:eq(0)').attr('data-expenseid') + ',' +
                             numeral().unformat($(v).find('td:eq(2) input').val()) + ',' +
                             numeral().unformat($(v).find('td:eq(3) input').val()) + ',' +
-                            numeral().unformat($(v).find('td:eq(4) input').val()) ;
+                            numeral().unformat($(v).find('td:eq(4) input').val());
                     }).get(),
                     TransporterID = $('#TransporterID').val() * 1 > 0 ? $('#TransporterID').val() : '',
                     CraneDriverID = $('#CraneDriverID').val() * 1 > 0 ? $('#CraneDriverID').val() : '',
@@ -158,7 +138,7 @@ var pageManager = function () {
                     $('#DeclarationNo').val(), $('#Notes').val(), commonManger.dateFormat($('#BillOfEntryDate').val()),
                         TransporterID, CraneDriverID],
 
-                    namesDetails = ['InvoiceDetailsID', 'InvoiceID', 'ExpenseID', 'Cost', 'Amount' , 'VAT'],
+                    namesDetails = ['InvoiceDetailsID', 'InvoiceID', 'ExpenseID', 'Cost', 'Amount', 'VAT'],
 
                     _valid = true;
 
@@ -240,7 +220,7 @@ var pageManager = function () {
             }
         },
         bindFormControls = function (d) {
-            
+
             var xml = $.parseXML(d.d),
                 jsn = $.xml2json(xml).list,
                 jsn1 = $.xml2json(xml).list1,
@@ -260,7 +240,7 @@ var pageManager = function () {
                         return $('<tr><td data-expenseid="' + v.ExpenseID + '" data-inv-details-id="' + (v.InvoiceDetailsID ? v.InvoiceDetailsID : 0) + '" class="center">' + (i + 1) + '</td><td>' + v.ExpenseName + '</td>\
                              <td><input data-expid="'+ v.ExpenseID + '" ' + (v.ParentExpenseID ? (' data-parent-expid="' + v.ParentExpenseID + '"') : '') + ' type="number" value="' + numeral(v.Cost ? v.Cost : v.DefaultValue).format('0.0') + '" /></td>\
                              <td><input data-IsVatable="' + v.IsVatable + '" data-expid="' + v.ExpenseID + '" type="number" value="' + numeral(v.Amount ? v.Amount : v.DefaultValue).format('0.0') + '" /></td>\
-                             <td><input readonly data-vatColmun data-expid="' + v.ExpenseID + '" ' + (v.ParentExpenseID ? (' data-parent-expid="' + v.ParentExpenseID + '"') : '') + ' type="number" value="" /></td>\
+                             <td><input readonly data-vatColmun data-expid="' + v.ExpenseID + '" ' + (v.ParentExpenseID ? (' data-parent-expid="' + v.ParentExpenseID + '"') : '') + ' type="number" value="' + (v.IsVatable == "true" ? numeral((v.Amount ? v.Amount : v.DefaultValue) * selfInviceAddManager.VAT).format('0.0') : numeral(0).format('0.0')) + '" /></td>\
                              <td><button class="btn btn-minier btn-danger remove" data-rel="tooltip" data-placement="top" data-original-title="Delete" title="Delete"><i class="fa fa-remove icon-only"></i></button></td></tr>');
                     }).get();
 
@@ -311,8 +291,7 @@ var pageManager = function () {
         },
         BindGrid = function () {
             var VATAmountParam = $('#Amount').val();
-            if (selfInviceAddManager.IsVatable == "true")
-            {
+            if (selfInviceAddManager.IsVatable == "true") {
                 VATAmountParam = VATAmountParam * selfInviceAddManager.VAT;
             }
             else {
@@ -392,7 +371,7 @@ var pageManager = function () {
             $('#TotalAmountDhs').text('0');
         },
         getDefaultValue = function (no) {
-            
+
             var functionName = "Expenses_SelectRow",
                 prm = {
                     actionName: functionName,
@@ -415,7 +394,7 @@ var pageManager = function () {
         },
 
         ReadFromSettings = function () {
-           
+
             var functionName = "Settings_Select",
                 prm = {
                     actionName: functionName,
@@ -427,11 +406,12 @@ var pageManager = function () {
                         jsn = $.xml2json(xml).list;
 
                     selfInviceAddManager.VAT = parseFloat(jsn.Val);
+                    setFormProperties();
                 };
             dataService.callAjax('Post', JSON.stringify(prm), sUrl + 'GetData',
                 bindData, commonManger.errorException);
         },
-       
+
         reArrangGridIndexs = function () {
             $('#listItems tbody tr').each(function (i, n) {
                 $(this).find('td:eq(0)').text(i + 1);
