@@ -2,27 +2,7 @@
 // Developer: M. Salah (07-01-2017)
 // Email: eng.msalah.abdullah@gmail.com
 //=======================================
-window.onload = function () {
-    debugger;
-    var _total = 0;
-    var _totalVat = 0;
 
-    setTimeout(function () {
-
-        $('.listItems tbody tr').each(function (i, item) {
-            _total += numeral($(this).children('td:eq(2)').text()) * 1;
-            _totalVat += numeral($(this).children('td:eq(3)').text()) * 1;
-        });
-
-        $("#tdTotalAmount").html(numeral(_total).format('0,0.0'));
-        $("#tdVatAmount").html(numeral(_totalVat).format('0,0.0'));
-
-        var AmountAndVat = numeral(_total + _totalVat).format('0,0.0');
-        $("#TotalAmount").text(AmountAndVat);
-
-    }, 500);
-
-}
 var
     pageManager = function () {
         "use strict";
@@ -58,6 +38,9 @@ var
                     values: [_id, _key, _no]
                 },
                     bindReportControls = function (d) {
+                        debugger;
+                        var _total = 0;
+                        var _totalVat = 0;
                         var xml = $.parseXML(d.d), jsn = $.xml2json(xml).list, jsn1 = $.xml2json(xml).list1;
 
                         console.log(xml, jsn)
@@ -67,11 +50,17 @@ var
                             $.each(jsn, function (k, v) {
                                 $('#' + k).text(v);
                             });
+                            for (var i = 0; i < jsn1.length; i++) {
+                                _totalVat += numeral(jsn1[i].VAT) * 1;
+                                _total += numeral(jsn1[i].Amount) * 1;
+                            }
 
-                            // money format
-                            $('#TotalAmount').text(function () {
-                                return numeral($(this).text()).format('0,0');
-                            });
+                            // calculate total vat and total amount.
+                            $('#tdVatAmount').html(numeral(_totalVat).format('0,0.0'));
+                            $('#tdTotalAmount').html(numeral(_total).format('0,0.0'));
+
+                            var AmountAndVat = numeral(_total + _totalVat).format('0,0.0');
+                            $("#TotalAmount").text(AmountAndVat);
 
                             //date format
                             $('.date').text(function () {
