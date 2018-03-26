@@ -42,6 +42,12 @@
             }
         }
 
+         ul.list-unstyled {
+                columns: 2;
+                -webkit-columns: 2;
+                -moz-columns: 2;
+            }
+
         #water-mark {
             position: absolute;
             z-index: 0;
@@ -102,13 +108,22 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <ul class="list-unstyled ">
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <i class="ace-icon fa fa-caret-right blue"></i>
+                                                Dubai, United Arab Emirates
+                                            </li>
                                             <li>
                                                 <i class="ace-icon fa fa-caret-right blue"></i>
                                                 Mobile: <b class="red">+971 4 385 7012, +971 55 713 6363</b>
                                             </li>
-                                            <li><i class="ace-icon fa fa-caret-right blue"></i>
+                                            <li>
+                                                <i class="ace-icon fa fa-caret-right blue"></i>
                                                 Email: <b class="blue">HANGUWAL@YAHOO.COM</b>
+                                            </li>
+                                            <li>
+                                                <i class="ace-icon fa fa-caret-right blue"></i>
+                                                TRN: <b class="blue" id="Val"></b>
                                             </li>
                                         </ul>
                                     </div>
