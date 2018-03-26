@@ -150,5 +150,6 @@
     <script src="/Scripts/select2/select2.min.js"></script>
     <script src="/Scripts/lz-string/lz-string.min.js"></script>
     <script src="/Scripts/select2/select2-optinal.min.js"></script>
-    <script src="/Scripts/sys/invoices-list.min.js?v=1.28"></script>
+    <%--<script src="/Scripts/sys/invoices-list.min.js?v=1.28"></script>--%>
+    <script src="/Scripts/sys/invoices-list.js"></script>
 </asp:Content>

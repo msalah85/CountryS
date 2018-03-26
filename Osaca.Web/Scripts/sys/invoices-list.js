@@ -36,7 +36,7 @@ var
 
                     filterNames = 'ID~From~To';
                     filterValues = $.map(searchObj, function (el) { return el || '' }).join('~');
-                    
+
                     // update result
                     DefaultGridManager.updateGrid();
 
@@ -93,6 +93,11 @@ var
                 var dto = { actionName: "ClientPayments_Properties" };
                 dataService.callAjax('Post', JSON.stringify(dto), sUrl + 'GetDataDirect', BindListSearch, commonManger.errorException);
             },
+            CalcTotalAmount = function (totalvaT, totalAmount) {
+                var total = (numeral(totalvaT) * 1) + (numeral(totalAmount) * 1);
+                var totalNum = numeral(total).format('0,0.00');
+                return totalNum;
+            },
             initProperties = function () {
 
                 ////////////////////////// //////////////////////////
@@ -109,7 +114,7 @@ var
                         data: { id: qs.id, text: (qs.name.split('+').join(' ')) }
                     });
                 }
-
+                debugger;
 
                 gridColumns.push({
                     "mDataProp": "InvoiceID",
@@ -135,7 +140,9 @@ var
                         "bSortable": false
                     },
                     {
-                        "mData": function (d) { return numeral(d.TotalAmount).format('0,0.00') },
+                        "mData": function (d) {
+                            return CalcTotalAmount(d.TotalAmount, d.VATAmount)
+                        },
                         "bSortable": false
                     },
                     {
