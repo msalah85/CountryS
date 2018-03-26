@@ -141,7 +141,7 @@ var
                     },
                     {
                         "mData": function (d) {
-                            return CalcTotalAmount(d.TotalAmount, d.VATAmount)
+                             return numeral(d.TotalAmount).format('0,0.00')
                         },
                         "bSortable": false
                     },
@@ -175,10 +175,11 @@ var
 
                         var clientObj = {
                             invoices: jsn1.TotalInvoices ? jsn1.TotalInvoices * 1 : 0,
-                            payments: jsn1.TotalPayments ? jsn1.TotalPayments * 1 : 0
+                            payments: jsn1.TotalPayments ? jsn1.TotalPayments * 1 : 0,
+                            VatTotal: jsn1.VatTotal ? jsn1.VatTotal * 1 : 0
                         };
-
-                        $('.TotalInvoices').text(numeral(clientObj.invoices).format('0,0.00'));
+                        debugger;
+                        $('.TotalInvoices').text(numeral(clientObj.invoices + clientObj.VatTotal).format('0,0.00'));
                         $('.TotalPayments').text(numeral(clientObj.payments).format('0,0.00'));
 
                         // balance
