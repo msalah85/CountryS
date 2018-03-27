@@ -6,7 +6,6 @@
 var selfInviceAddManager;
 
 function onAmountChanged(e) {
-    debugger;
     // read values of this current Row.
     var _isvatable = $(e).attr('data-isvatable');
     var _value = $(e).val();
@@ -23,6 +22,7 @@ function onAmountChanged(e) {
 }
 
 var pageManager = function () {
+    debugger;
     selfInviceAddManager = this;
     "use strict";
     this.IsVatable = false;
@@ -240,7 +240,7 @@ var pageManager = function () {
                         return $('<tr><td data-expenseid="' + v.ExpenseID + '" data-inv-details-id="' + (v.InvoiceDetailsID ? v.InvoiceDetailsID : 0) + '" class="center">' + (i + 1) + '</td><td>' + v.ExpenseName + '</td>\
                              <td><input data-expid="'+ v.ExpenseID + '" ' + (v.ParentExpenseID ? (' data-parent-expid="' + v.ParentExpenseID + '"') : '') + ' type="number" value="' + numeral(v.Cost ? v.Cost : v.DefaultValue).format('0.0') + '" /></td>\
                              <td><input data-IsVatable="' + v.IsVatable + '" data-expid="' + v.ExpenseID + '" type="number" value="' + numeral(v.Amount ? v.Amount : v.DefaultValue).format('0.0') + '" /></td>\
-                             <td><input readonly data-vatColmun data-expid="' + v.ExpenseID + '" ' + (v.ParentExpenseID ? (' data-parent-expid="' + v.ParentExpenseID + '"') : '') + ' type="number" value="' + (v.IsVatable == "true" ? numeral((v.Amount ? v.Amount : v.DefaultValue) * selfInviceAddManager.VAT).format('0.0') : numeral(0).format('0.0')) + '" /></td>\
+                             <td><input readonly data-vatColmun data-expid="' + v.ExpenseID + '" ' + (v.ParentExpenseID ? (' data-parent-expid="' + v.ParentExpenseID + '"') : '') + ' type="number" value="' + (_id ? numeral(v.VAT).format('0.0') : (v.IsVatable == "true" ? numeral((v.Amount ? v.Amount : v.DefaultValue) * selfInviceAddManager.VAT).format('0.0') : numeral(0).format('0.0'))) + '" /></td>\
                              <td><button class="btn btn-minier btn-danger remove" data-rel="tooltip" data-placement="top" data-original-title="Delete" title="Delete"><i class="fa fa-remove icon-only"></i></button></td></tr>');
                     }).get();
 
