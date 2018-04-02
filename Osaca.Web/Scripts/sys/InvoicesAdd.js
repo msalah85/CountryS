@@ -92,8 +92,7 @@ var pageManager = function () {
             });
 
             // update total
-            $gridTable.delegate('tr input[type="number"]', 'keyup change', function (e) {
-
+            $gridTable.delegate('tr input[data-isvatable="true"]', 'keyup change', function (e) {
                 // update vat expense by changing service charge expense value.
                 var _this = $(this),
                     expId = _this.attr('data-expid'),
@@ -101,12 +100,12 @@ var pageManager = function () {
                     IsVatable = _this.attr('data-IsVatable'),
                     updateVatInGrid = function (parentID, parentValue) {
                         // find/update all children VAT value = parentValue * 0.05.
-                        $gridTable.find('tr input[data-parent-expid="' + parentID + '"]').val((parentValue * (selfInviceAddManager.VAT || 0.05)).toFixed(2));
+                        //$gridTable.find('tr input[data-parent-expid="' + parentID + '"]').val((parentValue * (selfInviceAddManager.VAT || 0.05)).toFixed(2));
                     };
 
                 onAmountChanged(_this);
-                if (expId && expValue)
-                    updateVatInGrid(expId, expValue);
+                //if (expId && expValue)
+                //    updateVatInGrid(expId, expValue);
 
                 showPaymentsTotal(); // recalculate total.
             });
