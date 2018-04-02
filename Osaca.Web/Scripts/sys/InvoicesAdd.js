@@ -169,10 +169,7 @@ var pageManager = function () {
                         return false;
                     }
 
-                }).promise().done(function () {
-
-                    console.log(namesMaster, valuesMaster, namesDetails, valuesDetails);
-
+                }).promise().done(function () {                    
                     // start save invoice.
                     if (_valid)
                         SaveDataMasterDetails(namesMaster, valuesMaster, namesDetails, valuesDetails);
