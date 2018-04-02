@@ -133,7 +133,6 @@ var pageManager = function () {
                         'Notes', 'BillOfEntryDate', 'TransporterID', 'CraneDriverID'],
 
                     valuesMaster = [$('#InvoiceID').val(), $('#ClientID').val(), commonManger.dateFormat($('#AddDate').val()),
-
                     numeral().unformat($('#TotalAmount').text()), numeral().unformat($('#TotalProfit').text()), $('#ContainerNo').val(),
                     $('#DeclarationNo').val(), $('#Notes').val(), commonManger.dateFormat($('#BillOfEntryDate').val()),
                         TransporterID, CraneDriverID],
@@ -143,9 +142,7 @@ var pageManager = function () {
                     _valid = true;
 
 
-
-
-
+                
 
                 // Validate trasporter/Crane-Driver name 
                 $('#listItems tbody tr').each(function () {
@@ -173,6 +170,9 @@ var pageManager = function () {
                     }
 
                 }).promise().done(function () {
+
+                    console.log(namesMaster, valuesMaster, namesDetails, valuesDetails);
+
                     // start save invoice.
                     if (_valid)
                         SaveDataMasterDetails(namesMaster, valuesMaster, namesDetails, valuesDetails);
@@ -343,17 +343,16 @@ var pageManager = function () {
                 _totalVat = 0;
 
             $('#listItems tbody tr').each(function (i, item) {
-                try {
-                    var cstVal = $(this).find('td:eq(2) input').val() * 1,
-                        custVal = $(this).find('td:eq(3) input').val() * 1,
-                        totalVat = $(this).find('td:eq(4) input').val() * 1;
+                //try {
+                var cstVal = $(this).find('td:eq(2) input').val(),
+                    custVal = $(this).find('td:eq(3) input').val(),
+                    totalVat = $(this).find('td:eq(4) input').val();
+                
+                _totalCost += numeral().unformat(cstVal && !isNaN(cstVal) ? cstVal : 0) * 1; // cost
+                _total4Cust += numeral().unformat(custVal && !isNaN(custVal) > 0 ? custVal : 0) * 1; // amount/customer
+                _totalVat += numeral().unformat(totalVat && !isNaN(totalVat) > 0 ? totalVat : 0) * 1; // vat
 
-
-                    _totalCost += numeral().unformat(cstVal && !isNaN(cstVal) ? cstVal : 0) * 1; // cost
-                    _total4Cust += numeral().unformat(custVal && !isNaN(custVal) > 0 ? custVal : 0) * 1; // amount/customer
-                    _totalVat += numeral().unformat(totalVat && !isNaN(totalVat) > 0 ? totalVat : 0) * 1; // vat
-
-                } catch (err) { console.log(err); }
+                //} catch (err) { console.log(err); }
             });
 
             _total4Cust = _total4Cust + _totalVat;
@@ -374,7 +373,7 @@ var pageManager = function () {
         resetMyForm = function () {
             $('#aspnetForm')[0].reset();
             $('#listItems tbody').html('');
-            $('#TotalAmountDhs').text('0');
+            $('#TotalAmount').text('0');
         },
         getDefaultValue = function (no) {
 
