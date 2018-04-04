@@ -1,15 +1,13 @@
 ﻿var SummaryListManager;
 $(function () {
-    pageManager.Init();
+    SummaryManager.Init();
 });
 
-var pageManager = function () {
+var SummaryManager = function () {
+   
     SummaryListManager = this;
     "use strict";
-    this.TotalVatIn;
-    this.TotalVatOut;
-    this.VatIngridColumns = [];
-    this.VatOutgridColumns = [];
+    this.ClientGridColumns = [];
     this.searchObj = { from: "", to: "" };
     this.filterNames = '';
     this.filterValues = '';
@@ -35,8 +33,8 @@ var pageManager = function () {
             SummaryListManager.filterNames = 'From~To';
             SummaryListManager.filterValues = $.map(SummaryListManager.searchObj, function (el) { return el || '' }).join('~');
 
-           // HandelBindWithPageingvatIn();
-           // HandelBindWithPageingvatOut();
+             BindClientsSummaryGrid();
+            // HandelBindWithPageingvatOut();
 
         },
         UpdateTotalSummary = function () {
@@ -52,20 +50,21 @@ var pageManager = function () {
 
                 SummaryListManager.filterNames = 'From~To';
                 SummaryListManager.filterValues = $.map(SummaryListManager.searchObj, function (el) { return el || '' }).join('~');
-                // Update VatIn Grid with new Search Model.
-               // DefaultGridfilterManager.updateGrid('listItems', SummaryListManager.filterNames, SummaryListManager.filterValues);
+                // Update Summary Grid with new Search Model.
+                DefaultGridfilterManager.updateGrid('ClientsGrid', SummaryListManager.filterNames, SummaryListManager.filterValues);
                 // Update VatOut Grid with new Search Model.
-              //  DefaultGridfilterManager.updateGrid('listItemsVatOut', SummaryListManager.filterNames, SummaryListManager.filterValues);
+                //  DefaultGridfilterManager.updateGrid('listItemsVatOut', SummaryListManager.filterNames, SummaryListManager.filterValues);
             });
         },
-        HandelBindWithPageingvatIn = function () {
-            SummaryListManager.VatIngridColumns.push(
+        BindClientsSummaryGrid = function () {
+            SummaryListManager.ClientGridColumns.push(
+                 {
+                     "mDataProp": "ClientID",
+                     "bSortable": true
+                 },
                 {
-                    "mDataProp": "InvoiceID",
-                    "bSortable": true,
-                    "mData": function (d) {
-                        return '<a target="_blank" title="View Details" href="InvoicePrint.aspx?id=' + d.InvoiceID + '"> ' + d.InvoiceID + ' </a>';
-                    }
+                    "mDataProp": "ClientName",
+                    "bSortable": true
                 },
                 {
                     "mDataProp": "AddDate",
@@ -75,25 +74,17 @@ var pageManager = function () {
                     }
                 },
                 {
-                    "mData": function (d) { return numeral(d.VATAmount).format('0,0.00') },
+                    "mData": function (d) { return numeral(d.TotalInvoices).format('0,0.00') },
                     "bSortable": false
                 }
-                ,
-                {
-                    "mDataProp": "ClientName",
-                    "bSortable": true
-                }
-                ,
-                {
-                    "mData": "ClientTRN",
-                    "bSortable": false,
-                    "mData": function (d) {
-                        return '<td>' + HandelClientTRN(d.ClientTRN) + '</td>';
-                    }
-                }
             );
-            DefaultGridfilterManager.Init('VatIn_SelectList', 'listItems',
-                SummaryListManager.VatIngridColumns, 'InvoiceID', SummaryListManager.filterNames, SummaryListManager.filterValues, CallBackVatInFunction);
+            DefaultGridfilterManager.Init('ClientsSummarySelectList',
+                'ClientsGrid',
+                SummaryListManager.ClientGridColumns,
+                'ClientID',
+                SummaryListManager.filterNames,
+                SummaryListManager.filterValues,
+                CallBackVatInFunction);
         },
         HandelBindWithPageingvatOut = function () {
             SummaryListManager.VatOutgridColumns.push({
@@ -121,18 +112,6 @@ var pageManager = function () {
         CallBackVatInFunction = function (data) {
             try {
                 var data = commonManger.comp2json(data.d);
-                var VatIn = data.list1.TotalVATAmount;
-                if (VatIn == null || VatIn == undefined) {
-                    $("#TotalVatIn").html("0.00");
-                    SummaryListManager.TotalVatIn = 0;
-                    UpdateAmountDue();
-
-                }
-                else {
-                    $("#TotalVatIn").html(numeral(VatIn).format('0,0.00'));
-                    SummaryListManager.TotalVatIn = VatIn;
-                    UpdateAmountDue();
-                }
             } catch (e) {
 
             }

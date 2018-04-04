@@ -42,79 +42,53 @@
                 </div>
             </form>
         </div>
-        <div class="row">
-
-            <div class="col-sm-12 infobox-container">
-
-                <div class="infobox infobox-green">
-                    <div class="infobox-icon">
-                        <i class="ace-icon fa fa-money"></i>
-                    </div>
-
-                    <div class="infobox-data">
-                        <span class="infobox-data-number" id="TotalVatIn"></span>
-                        <div class="infobox-content">Total vat in</div>
-                    </div>
-                </div>
-
-                <div class="infobox infobox-blue">
-                    <div class="infobox-icon">
-                        <i class="ace-icon fa fa-outdent"></i>
-                    </div>
-
-                    <div class="infobox-data">
-                        <span class="infobox-data-number" id="TotalVatOut"></span>
-                        <div class="infobox-content">Total vat out</div>
-                    </div>
-                </div>
-
-                <div class="infobox infobox-pink">
-                    <div class="infobox-icon">
-                        <i class="ace-icon fa fa-send-o"></i>
-                    </div>
-
-                    <div class="infobox-data">
-                        <span class="infobox-data-number" id="DueVatAmount"></span>
-                        <div class="infobox-content">Due vat amount</div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
 
         <div class="hr hr-24"></div>
 
         <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#Totalinvoices">Total invoices</a></li>
-            <li><a data-toggle="tab" href="#Totalpayments">Total payments</a></li>
-            <li><a data-toggle="tab" href="#TransFees">Trans/Driver fees</a></li>
-            <li><a data-toggle="tab" href="#TransPayments">Trans/Driver payments</a></li>
-            <li><a data-toggle="tab" href="#Totalprofit">Total profit</a></li>
-            <li><a data-toggle="tab" href="#Outgoings">Outgoings</a></li>
-            <li><a data-toggle="tab" href="#Netprofit">Net profit</a></li>
+            <li class="active"><a data-toggle="tab" href="#ClientsSummary">Clients</a></li>
         </ul>
 
         <div class="tab-content">
 
-            <div id="Totalinvoices" class="tab-pane fade in active">
-            </div>
-            <div id="Totalpayments" class="tab-pane fade">
-            </div>
+            <div id="ClientsSummary" class="tab-pane fade in active">
 
-            <div id="TransFees" class="tab-pane fade">
-            </div>
+                <div class="row">
+                    <div class="col-xs-12 widget-container-col">
+                        <div class="widget-box widget-color-blue" id="widget-box-2">
+                            <div class="widget-header">
+                                <h5 class="widget-title bigger lighter">
+                                    <i class="ace-icon fa fa-table"></i>
+                                    Clients Summary
+                                </h5>
+                                <div class="widget-toolbar">
+                                    <a href="#" data-action="fullscreen" class="white">
+                                        <i class="1 ace-icon fa fa-expand bigger-125"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="widget-body">
+                                <div class="widget-main no-padding">
+                                    <table id="ClientsGrid" class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Name</th>
+                                                <th>Total Invoices</th>
+                                                <th>Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-            <div id="TransPayments" class="tab-pane fade">
-            </div>
 
-            <div id="Totalprofit" class="tab-pane fade">
             </div>
-
-            <div id="Outgoings" class="tab-pane fade">
-            </div>
-
-            <div id="Netprofit" class="tab-pane fade">
-            </div>
+            
         </div>
     </div>
     <script src="/Scripts/sys/jquery.xml2json.min.js"></script>

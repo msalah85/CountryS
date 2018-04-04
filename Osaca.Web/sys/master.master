@@ -216,12 +216,12 @@
                 </li>
 
 
-               <%-- <li>
+                <li>
                     <a href="/sys/SummaryLists.aspx">
                         <i class="menu-icon fa fa-file-archive-o"></i>
                         <span class="menu-text">Finance</span>
                     </a>
-                </li>--%>
+                </li>
 
                 <li>
                     <a href="documents/docsview.aspx">
