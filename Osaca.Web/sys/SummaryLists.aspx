@@ -9,6 +9,9 @@
     <script src="/Scripts/sys/DefaultGridVariables.min.js?v=1.30"></script>
     <script src="/content/sys/assets/js/jquery.validate.js"></script>
     <script src="/content/sys/assets/js/additional-methods.min.js"></script>
+    <script src="../Content/sys/assets/js/jquery-ui.js"></script>
+    <link href="../Content/sys/assets/css/jquery-ui.min.css" rel="stylesheet" />
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <div class="breadcrumbs ace-save-state" id="breadcrumbs">
@@ -45,15 +48,12 @@
 
         <div class="hr hr-24"></div>
 
-        <ul class="nav nav-tabs">
-            <li class="active"><a data-toggle="tab" href="#ClientsSummary">Clients</a></li>
-        </ul>
 
-        <div class="tab-content">
+        <div id="accordion">
+            <h3>Clients Summary</h3>
+            <div>
 
-            <div id="ClientsSummary" class="tab-pane fade in active">
-
-                <div class="row">
+                 <div class="row">
                     <div class="col-xs-12 widget-container-col">
                         <div class="widget-box widget-color-blue" id="widget-box-2">
                             <div class="widget-header">
@@ -85,16 +85,53 @@
                         </div>
                     </div>
                 </div>
-
+                  
 
             </div>
-            
+            <h3>Section 2</h3>
+            <div>
+                <p>
+                    Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
+    purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
+    velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
+    suscipit faucibus urna.
+                </p>
+            </div>
+            <h3>Section 3</h3>
+            <div>
+                <p>
+                    Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
+    Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
+    ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
+    lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
+                </p>
+                <ul>
+                    <li>List item one</li>
+                    <li>List item two</li>
+                    <li>List item three</li>
+                </ul>
+            </div>
+            <h3>Section 4</h3>
+            <div>
+                <p>
+                    Cras dictum. Pellentesque habitant morbi tristique senectus et netus
+    et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
+    faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
+    mauris vel est.
+                </p>
+                <p>
+                    Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
+    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
+    inceptos himenaeos.
+                </p>
+            </div>
         </div>
+
     </div>
     <script src="/Scripts/sys/jquery.xml2json.min.js"></script>
     <script src="/Scripts/sys/numeral.min.js"></script>
     <script src="/Scripts/lz-string/lz-string.min.js"></script>
-     <script src="/Scripts/sys/DataGridFilter.js"></script>
+    <script src="/Scripts/sys/DataGridFilter.js"></script>
     <script src="/Scripts/sys/SummaryList.js"></script>
     <script src="/Scripts/select2/select2.min.js"></script>
     <script src="/Scripts/select2/select2-optinal.min.js"></script>
@@ -104,7 +141,7 @@
         }
 
         .hr-24 {
-            margin-top: 7px
+            margin-top: 7px;
         }
     </style>
 </asp:Content>

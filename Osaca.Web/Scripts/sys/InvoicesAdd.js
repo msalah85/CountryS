@@ -7,8 +7,9 @@ var selfInviceAddManager;
 
 function onAmountChanged(e) {
     // read values of this current Row.
-    var _isvatable = $(e).attr('data-isvatable');
-    var _value = $(e).val();
+    var _isvatable = $(e).attr('data-isvatable'),
+        _value = $(e).val();
+
     if ((_isvatable == "true")) {
         // applay changes on Vat Amount based on _isvatable.
         var nextTXT = parseFloat($(e).closest('tr').find('input')[0].value);
@@ -32,7 +33,7 @@ var pageManager = function () {
 
         Init = function () {
             // set buyers and shippers lists for binding.            
-            
+
 
             pageEvents();
             try {
@@ -91,8 +92,7 @@ var pageManager = function () {
             });
 
             // update total
-            $gridTable.delegate('tr input[type="number"]', 'keyup change', function (e) {
-
+            $gridTable.delegate('tr input[data-isvatable="true"]', 'keyup change', function (e) {
                 // update vat expense by changing service charge expense value.
                 var _this = $(this),
                     expId = _this.attr('data-expid'),
@@ -100,12 +100,12 @@ var pageManager = function () {
                     IsVatable = _this.attr('data-IsVatable'),
                     updateVatInGrid = function (parentID, parentValue) {
                         // find/update all children VAT value = parentValue * 0.05.
-
-                        // $gridTable.find('tr input[data-parent-expid="' + parentID + '"]').val((parentValue * 0.05).toFixed(2));
+                        //$gridTable.find('tr input[data-parent-expid="' + parentID + '"]').val((parentValue * (selfInviceAddManager.VAT || 0.05)).toFixed(2));
                     };
+
                 onAmountChanged(_this);
-                if (expId && expValue)
-                    updateVatInGrid(expId, expValue);
+                //if (expId && expValue)
+                //    updateVatInGrid(expId, expValue);
 
                 showPaymentsTotal(); // recalculate total.
             });
@@ -133,7 +133,6 @@ var pageManager = function () {
                         'Notes', 'BillOfEntryDate', 'TransporterID', 'CraneDriverID'],
 
                     valuesMaster = [$('#InvoiceID').val(), $('#ClientID').val(), commonManger.dateFormat($('#AddDate').val()),
-
                     numeral().unformat($('#TotalAmount').text()), numeral().unformat($('#TotalProfit').text()), $('#ContainerNo').val(),
                     $('#DeclarationNo').val(), $('#Notes').val(), commonManger.dateFormat($('#BillOfEntryDate').val()),
                         TransporterID, CraneDriverID],
@@ -143,9 +142,7 @@ var pageManager = function () {
                     _valid = true;
 
 
-
-
-
+                
 
                 // Validate trasporter/Crane-Driver name 
                 $('#listItems tbody tr').each(function () {
@@ -172,7 +169,7 @@ var pageManager = function () {
                         return false;
                     }
 
-                }).promise().done(function () {
+                }).promise().done(function () {                    
                     // start save invoice.
                     if (_valid)
                         SaveDataMasterDetails(namesMaster, valuesMaster, namesDetails, valuesDetails);
@@ -339,18 +336,23 @@ var pageManager = function () {
         },
         showPaymentsTotal = function () {
             var _totalCost = 0,
-                _total4Cust = 0;
+                _total4Cust = 0,
+                _totalVat = 0;
 
             $('#listItems tbody tr').each(function (i, item) {
-                try {
-                    var cstVal = $(this).find('td:eq(2) input').val(),
-                        custVal = $(this).find('td:eq(3) input').val();
+                //try {
+                var cstVal = $(this).find('td:eq(2) input').val(),
+                    custVal = $(this).find('td:eq(3) input').val(),
+                    totalVat = $(this).find('td:eq(4) input').val();
+                
+                _totalCost += numeral().unformat(cstVal && !isNaN(cstVal) ? cstVal : 0) * 1; // cost
+                _total4Cust += numeral().unformat(custVal && !isNaN(custVal) > 0 ? custVal : 0) * 1; // amount/customer
+                _totalVat += numeral().unformat(totalVat && !isNaN(totalVat) > 0 ? totalVat : 0) * 1; // vat
 
-
-                    _totalCost += numeral().unformat(cstVal && !isNaN(cstVal) ? cstVal : 0) * 1; // cost
-                    _total4Cust += numeral().unformat(custVal && !isNaN(custVal) > 0 ? custVal : 0) * 1; // amount/customer
-                } catch (err) { console.log(err); }
+                //} catch (err) { console.log(err); }
             });
+
+            _total4Cust = _total4Cust + _totalVat;
 
             // show total amount and profit.
             $('#TotalAmount').text(numeral(_total4Cust).format('0,0.0')); // show invoice total
@@ -368,7 +370,7 @@ var pageManager = function () {
         resetMyForm = function () {
             $('#aspnetForm')[0].reset();
             $('#listItems tbody').html('');
-            $('#TotalAmountDhs').text('0');
+            $('#TotalAmount').text('0');
         },
         getDefaultValue = function (no) {
 
@@ -389,27 +391,24 @@ var pageManager = function () {
                 };
 
 
-            dataService.callAjax('Post', JSON.stringify(prm), sUrl + 'GetData',
-                bindData, commonManger.errorException);
+            dataService.callAjax('Post', JSON.stringify(prm), sUrl + 'GetData', bindData, commonManger.errorException);
         },
 
         ReadFromSettings = function () {
-
             var functionName = "Settings_Select",
                 prm = {
                     actionName: functionName,
                     value: 'VAT'
                 },
                 bindData = function (data) {
-                    debugger;
                     var xml = $.parseXML(data.d),
                         jsn = $.xml2json(xml).list;
 
                     selfInviceAddManager.VAT = parseFloat(jsn.Val);
                     setFormProperties();
                 };
-            dataService.callAjax('Post', JSON.stringify(prm), sUrl + 'GetData',
-                bindData, commonManger.errorException);
+
+            dataService.callAjax('Post', JSON.stringify(prm), sUrl + 'GetData', bindData, commonManger.errorException);
         },
 
         reArrangGridIndexs = function () {

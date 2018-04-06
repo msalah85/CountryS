@@ -12,3 +12,11 @@ C:\Users\Ibrahim Ayman\Desktop\Cargo\IraqCars.Business\bin\Debug\Newtonsoft.Json
 C:\Users\Ibrahim Ayman\Desktop\Cargo\IraqCars.Business\obj\Debug\ShareWeb.Business.csprojResolveAssemblyReference.cache
 C:\Users\Ibrahim Ayman\Desktop\Cargo\IraqCars.Business\obj\Debug\ShareWeb.Business.dll
 C:\Users\Ibrahim Ayman\Desktop\Cargo\IraqCars.Business\obj\Debug\ShareWeb.Business.pdb
+D:\MyWork\OSACA\Ibrahim Ayman\countryS\IraqCars.Business\bin\Debug\ShareWeb.Business.dll.config
+D:\MyWork\OSACA\Ibrahim Ayman\countryS\IraqCars.Business\bin\Debug\ShareWeb.Business.dll
+D:\MyWork\OSACA\Ibrahim Ayman\countryS\IraqCars.Business\bin\Debug\ShareWeb.Business.pdb
+D:\MyWork\OSACA\Ibrahim Ayman\countryS\IraqCars.Business\bin\Debug\Newtonsoft.Json.dll
+D:\MyWork\OSACA\Ibrahim Ayman\countryS\IraqCars.Business\obj\Debug\ShareWeb.Business.csprojResolveAssemblyReference.cache
+D:\MyWork\OSACA\Ibrahim Ayman\countryS\IraqCars.Business\obj\Debug\ShareWeb.Business.csproj.CoreCompileInputs.cache
+D:\MyWork\OSACA\Ibrahim Ayman\countryS\IraqCars.Business\obj\Debug\ShareWeb.Business.dll
+D:\MyWork\OSACA\Ibrahim Ayman\countryS\IraqCars.Business\obj\Debug\ShareWeb.Business.pdb

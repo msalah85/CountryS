@@ -18,7 +18,10 @@ var SummaryManager = function () {
             to: ''
         },
         Init = function () {
-
+            $("#accordion").accordion({
+                autoHeight: false,
+                heightStyle: "content"
+            });
             pageEvents();
             // init start and end date range
             var begin = moment().format("01-MM-YYYY"),
