@@ -4,10 +4,13 @@ $(function () {
 });
 
 var SummaryManager = function () {
-   
+    //"use strict";
     SummaryListManager = this;
-    "use strict";
+
     this.ClientGridColumns = [];
+
+    this.TransportrsGridColumns = [];
+
     this.searchObj = { from: "", to: "" };
     this.filterNames = '';
     this.filterValues = '';
@@ -18,10 +21,13 @@ var SummaryManager = function () {
             to: ''
         },
         Init = function () {
+            debugger;
+            $("#ClientsGrid_wrapper").find("div").hide();
             $("#accordion").accordion({
                 autoHeight: false,
                 heightStyle: "content"
             });
+
             pageEvents();
             // init start and end date range
             var begin = moment().format("01-MM-YYYY"),
@@ -36,13 +42,9 @@ var SummaryManager = function () {
             SummaryListManager.filterNames = 'From~To';
             SummaryListManager.filterValues = $.map(SummaryListManager.searchObj, function (el) { return el || '' }).join('~');
 
-             BindClientsSummaryGrid();
-            // HandelBindWithPageingvatOut();
+            BindClientsSummaryGrid();
+            // BindTransportersSummaryGrid();
 
-        },
-        UpdateTotalSummary = function () {
-            var DueTototal = SummaryListManager.TotalVatIn - SummaryListManager.TotalVatOut;
-            $("#DueVatAmount").html(numeral(DueTototal).format('0,0.00'));
         },
         pageEvents = function () {
             $('#btnSearch').click(function (e) {
@@ -59,84 +61,97 @@ var SummaryManager = function () {
                 //  DefaultGridfilterManager.updateGrid('listItemsVatOut', SummaryListManager.filterNames, SummaryListManager.filterValues);
             });
         },
+        CalcAmountDue = function (TotalInvoices,TotalPayments) {
+            return TotalInvoices - TotalPayments;
+        },
         BindClientsSummaryGrid = function () {
             SummaryListManager.ClientGridColumns.push(
                  {
                      "mDataProp": "ClientID",
-                     "bSortable": true
+                     "bSortable": false
                  },
                 {
                     "mDataProp": "ClientName",
-                    "bSortable": true
-                },
-                {
-                    "mDataProp": "AddDate",
-                    "bSortable": true,
-                    "mData": function (d) {
-                        return commonManger.formatJSONDateCal(d.AddDate);
-                    }
+                    "bSortable": false
                 },
                 {
                     "mData": function (d) { return numeral(d.TotalInvoices).format('0,0.00') },
                     "bSortable": false
+                },
+                {
+                    "mData": function (d) { return numeral(d.TotalPayments).format('0,0.00') },
+                    "bSortable": false
+                }
+                ,
+                {
+                    "mData": function (d) { return numeral(CalcAmountDue(d.TotalInvoices,d.TotalPayments)).format('0,0.00') },
+                    "bSortable": false
                 }
             );
-            DefaultGridfilterManager.Init('ClientsSummarySelectList',
+            DefaultGridfilterManager.Init('Summary_List',
                 'ClientsGrid',
                 SummaryListManager.ClientGridColumns,
                 'ClientID',
                 SummaryListManager.filterNames,
                 SummaryListManager.filterValues,
-                CallBackVatInFunction);
+                CallbackFunction);
         },
-        HandelBindWithPageingvatOut = function () {
-            SummaryListManager.VatOutgridColumns.push({
-                "mDataProp": "OutgoingID",
-                "bSortable": true
-            },
-                {
-                    "mDataProp": "AddDate",
-                    "bSortable": true,
-                    "mData": function (d) {
-                        return commonManger.formatJSONDateCal(d.AddDate);
-                    }
-                },
-                {
-                    "mData": function (d) { return numeral(d.VAT).format('0,0.00') },
-                    "bSortable": false
-                },
-                {
-                    "mData": function (d) { return "100241525300003" },
-                    "bSortable": false
-                });
-            DefaultGridfilterManager.Init('VatOut_SelectList', 'listItemsVatOut', SummaryListManager.VatOutgridColumns, 'OutgoingID',
-                SummaryListManager.filterNames, SummaryListManager.filterValues, CallBackVatOutFunction);
-        },
-        CallBackVatInFunction = function (data) {
+        CallbackFunction = function (data) {
+            $("#ClientsGrid_wrapper").find("div").hide();
             try {
-                var data = commonManger.comp2json(data.d);
-            } catch (e) {
 
-            }
-        },
-        CallBackVatOutFunction = function (data) {
-            try {
                 var data = commonManger.comp2json(data.d);
-                var VatOut = data.list1.TotalVATAmount;
-                if (VatOut == null || VatOut == undefined) {
-                    $("#TotalVatOut").html("0.00");
-                    SummaryListManager.TotalVatOut = 0;
-                    UpdateAmountDue();
-                }
-                else {
-                    $("#TotalVatOut").html(numeral(VatOut).format('0,0.00'));
-                    SummaryListManager.TotalVatOut = VatOut;
-                    UpdateAmountDue();
-                }
+
+                var rows = $(data.list1).map(function (i, v) {
+                    return $('<tr><td>' + v.UserID + '</td>\
+                             <td>' + v.UserFullName + '</td>\
+                             <td>' + numeral(v.TotalAmount).format('0,0.00') + '</td>\
+                             <td>' + numeral(v.TotalPayments).format('0,0.00') + '</td>\
+                              <td>' + numeral(CalcAmountDue(v.TotalAmount , v.TotalPayments)).format('0,0.00') + '</td>\
+                             </tr>');
+                }).get();
+
+                $('#TransportersGrid tbody').append(rows);
+
+
+                ///
+                var rows_Crange = $(data.list2).map(function (i, v) {
+                    return $('<tr><td>' + v.UserID + '</td>\
+                             <td>' + v.UserFullName + '</td>\
+                             <td>' + numeral(v.TotalAmount).format('0,0.00') + '</td>\
+                             <td>' + numeral(v.TotalPayments).format('0,0.00') + '</td>\
+                             <td>' + numeral(CalcAmountDue(v.TotalAmount, v.TotalPayments)).format('0,0.00') + '</td>\
+                             </tr>');
+                }).get();
+                $('#CrangeGrid tbody').append(rows_Crange);
+
+                ///
+                var rows_Outgoings = $(data.list3).map(function (i, v) {
+                    return $('<tr><td>' + v.ExpenseTypeID + '</td>\
+                             <td>' + v.ExpenseTypeName + '</td>\
+                             <td>' + numeral(v.TotalAmount).format('0,0.00') + '</td>\
+                             </tr>');
+                }).get();
+                $('#OutgoingsGrid tbody').append(rows_Outgoings);
+
+                // bind lables.
+                $("#SpTotalInvoices").html(numeral(data.list4.TotalInvoices).format('0,0.00'));
+                $("#SpTotalPayments").html(numeral(data.list4.TotalPayments).format('0,0.00'));
+                $("#SPProfit").html(numeral(data.list4.Profit).format('0,0.00'));
+
+
+                $("#SPOutgoings").html(numeral(data.list4.Outgoings).format('0,0.00'));
+                $("#SpTransFees").html(numeral(data.list4.TransFees).format('0,0.00'));
+                $("#SpTransPayments").html(numeral(data.list4.TransPayments).format('0,0.00'));
+
+                $("#SPCranFees").html(numeral(data.list4.CanFees).format('0,0.00'));
+                $("#SPCranPayments").html(numeral(data.list4.CranPayments).format('0,0.00'));
+
             } catch (e) {
 
             }
         }
+
     return {
         Init: Init
     };

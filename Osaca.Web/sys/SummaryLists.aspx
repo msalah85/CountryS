@@ -14,6 +14,11 @@
 
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <style>
+        #ui-id-2 {
+            height: 500px;
+        }
+    </style>
     <div class="breadcrumbs ace-save-state" id="breadcrumbs">
         <ul class="breadcrumb">
             <li>
@@ -46,6 +51,72 @@
             </form>
         </div>
 
+        <div class="row">
+
+            <div class="col-lg-4">
+                <ul class="list-unstyled">
+                    <li>
+                        <i class="ace-icon fa fa-caret-right blue"></i>
+                        Total Invoices: <b class="blue" id="SpTotalInvoices"></b>
+                    </li>
+
+                    <li>
+                        <i class="ace-icon fa fa-caret-right blue"></i>
+                        Total Payments: <b class="blue" id="SpTotalPayments"></b>
+                    </li>
+
+
+                    <li>
+                        <i class="ace-icon fa fa-caret-right blue"></i>
+                        Profit: <b class="blue" id="SPProfit"></b>
+                    </li>
+
+                </ul>
+            </div>
+
+            <div class="col-lg-4">
+                <ul class="list-unstyled">
+                    <li>
+                        <i class="ace-icon fa fa-caret-right blue"></i>
+                        Outgoings: <b class="blue" id="SPOutgoings"></b>
+                    </li>
+
+                    <li>
+                        <i class="ace-icon fa fa-caret-right blue"></i>
+                        Transformers Fees: <b class="blue" id="SpTransFees"></b>
+                    </li>
+
+
+                    <li>
+                        <i class="ace-icon fa fa-caret-right blue"></i>
+                        Transformers Payments: <b class="blue" id="SpTransPayments"></b>
+                    </li>
+
+                </ul>
+            </div>
+
+
+            <div class="col-lg-4">
+                <ul class="list-unstyled">
+
+                    <li>
+                        <i class="ace-icon fa fa-caret-right blue"></i>
+                        Cran Fees: <b class="blue" id="SPCranFees"></b>
+                    </li>
+
+
+                    <li>
+                        <i class="ace-icon fa fa-caret-right blue"></i>
+                        Can Payments: <b class="blue" id="SPCranPayments"></b>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+
+
+
         <div class="hr hr-24"></div>
 
 
@@ -53,7 +124,7 @@
             <h3>Clients Summary</h3>
             <div>
 
-                 <div class="row">
+                <div class="row">
                     <div class="col-xs-12 widget-container-col">
                         <div class="widget-box widget-color-blue" id="widget-box-2">
                             <div class="widget-header">
@@ -75,7 +146,8 @@
                                                 <th>#</th>
                                                 <th>Name</th>
                                                 <th>Total Invoices</th>
-                                                <th>Date</th>
+                                                <th>Total Payments</th>
+                                                <th>Due Amount</th>
                                             </tr>
                                         </thead>
                                         <tbody></tbody>
@@ -85,45 +157,121 @@
                         </div>
                     </div>
                 </div>
-                  
+
 
             </div>
-            <h3>Section 2</h3>
+            <h3>Transporters Summary</h3>
             <div>
-                <p>
-                    Sed non urna. Donec et ante. Phasellus eu ligula. Vestibulum sit amet
-    purus. Vivamus hendrerit, dolor at aliquet laoreet, mauris turpis porttitor
-    velit, faucibus interdum tellus libero ac justo. Vivamus non quam. In
-    suscipit faucibus urna.
-                </p>
+                <div class="row">
+                    <div class="col-xs-12 widget-container-col">
+                        <div class="widget-box widget-color-blue">
+                            <div class="widget-header">
+                                <h5 class="widget-title bigger lighter">
+                                    <i class="ace-icon fa fa-table"></i>
+                                    Transporters Summary
+                                </h5>
+                                <div class="widget-toolbar">
+                                    <a href="#" data-action="fullscreen" class="white">
+                                        <i class="1 ace-icon fa fa-expand bigger-125"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="widget-body">
+                                <div class="widget-main no-padding">
+                                    <table id="TransportersGrid" class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Full Name</th>
+                                                <th>Total Amount</th>
+                                                <th>Total Payments</th>
+                                                <th>Due Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <h3>Section 3</h3>
+            <h3>Crange/Charge</h3>
             <div>
-                <p>
-                    Nam enim risus, molestie et, porta ac, aliquam ac, risus. Quisque lobortis.
-    Phasellus pellentesque purus in massa. Aenean in pede. Phasellus ac libero
-    ac tellus pellentesque semper. Sed ac felis. Sed commodo, magna quis
-    lacinia ornare, quam ante aliquam nisi, eu iaculis leo purus venenatis dui.
-                </p>
-                <ul>
-                    <li>List item one</li>
-                    <li>List item two</li>
-                    <li>List item three</li>
-                </ul>
+
+                <div class="row">
+                    <div class="col-xs-12 widget-container-col">
+                        <div class="widget-box widget-color-blue">
+                            <div class="widget-header">
+                                <h5 class="widget-title bigger lighter">
+                                    <i class="ace-icon fa fa-table"></i>
+                                    Crange/Charge
+                                </h5>
+                                <div class="widget-toolbar">
+                                    <a href="#" data-action="fullscreen" class="white">
+                                        <i class="1 ace-icon fa fa-expand bigger-125"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="widget-body">
+                                <div class="widget-main no-padding">
+                                    <table id="CrangeGrid" class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Full Name</th>
+                                                <th>Total Amount</th>
+                                                <th>Total Payments</th>
+                                                <th>Due Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
-            <h3>Section 4</h3>
+            <h3>Outgoings</h3>
             <div>
-                <p>
-                    Cras dictum. Pellentesque habitant morbi tristique senectus et netus
-    et malesuada fames ac turpis egestas. Vestibulum ante ipsum primis in
-    faucibus orci luctus et ultrices posuere cubilia Curae; Aenean lacinia
-    mauris vel est.
-                </p>
-                <p>
-                    Suspendisse eu nisl. Nullam ut libero. Integer dignissim consequat lectus.
-    Class aptent taciti sociosqu ad litora torquent per conubia nostra, per
-    inceptos himenaeos.
-                </p>
+
+                <div class="row">
+                    <div class="col-xs-12 widget-container-col">
+                        <div class="widget-box widget-color-blue">
+                            <div class="widget-header">
+                                <h5 class="widget-title bigger lighter">
+                                    <i class="ace-icon fa fa-table"></i>
+                                    Outgoings
+                                </h5>
+                                <div class="widget-toolbar">
+                                    <a href="#" data-action="fullscreen" class="white">
+                                        <i class="1 ace-icon fa fa-expand bigger-125"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="widget-body">
+                                <div class="widget-main no-padding">
+                                    <table id="OutgoingsGrid" class="table table-striped table-bordered table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>Expenses Type Name</th>
+                                                <th>Total Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
         </div>
 
