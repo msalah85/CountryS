@@ -26,6 +26,12 @@ var pageManager = function () {
         },
         Init = function () {
 
+            $('#printMe').click(function (e) {
+                e.preventDefault();
+                $('#sidebar').addClass('menu-min');
+                window.print();
+            });
+
             pageEvents();
             // init start and end date range
             var begin = moment().format("01-MM-YYYY"),

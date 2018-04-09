@@ -38,6 +38,11 @@
                                 Search
                             </button>
                         </div>
+                        <div class="widget-toolbar hidden-480 hidden-print">
+                            <a href="javascript:void(0);" id="printMe" title="Print">
+                                <i class="ace-icon fa fa-print fa-2x"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </form>

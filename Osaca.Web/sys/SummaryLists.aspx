@@ -18,6 +18,13 @@
         #ui-id-2 {
             height: 500px;
         }
+        @media print {
+            .arrowed-right.arrowed-in {
+                padding: 10px 0;
+                height: auto !important;
+                width: 100%;
+            }
+        }
     </style>
     <div class="breadcrumbs ace-save-state" id="breadcrumbs">
         <ul class="breadcrumb">
@@ -46,72 +53,40 @@
                                 Search
                             </button>
                         </div>
+                        <div class="widget-toolbar hidden-480 hidden-print">
+                            <a href="javascript:void(0);" id="printMe" title="Print">
+                                <i class="ace-icon fa fa-print fa-2x"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </form>
         </div>
-
+         <div class="hr hr-24"></div>
         <div class="row">
 
-            <div class="col-lg-4">
-                <ul class="list-unstyled">
-                    <li>
-                        <i class="ace-icon fa fa-caret-right blue"></i>
-                        Total Invoices: <b class="blue" id="SpTotalInvoices"></b>
-                    </li>
-
-                    <li>
-                        <i class="ace-icon fa fa-caret-right blue"></i>
-                        Total Payments: <b class="blue" id="SpTotalPayments"></b>
-                    </li>
-
-
-                    <li>
-                        <i class="ace-icon fa fa-caret-right blue"></i>
-                        Profit: <b class="blue" id="SPProfit"></b>
-                    </li>
-
-                </ul>
-            </div>
-
-            <div class="col-lg-4">
-                <ul class="list-unstyled">
-                    <li>
-                        <i class="ace-icon fa fa-caret-right blue"></i>
-                        Outgoings: <b class="blue" id="SPOutgoings"></b>
-                    </li>
-
-                    <li>
-                        <i class="ace-icon fa fa-caret-right blue"></i>
-                        Transformers Fees: <b class="blue" id="SpTransFees"></b>
-                    </li>
-
-
-                    <li>
-                        <i class="ace-icon fa fa-caret-right blue"></i>
-                        Transformers Payments: <b class="blue" id="SpTransPayments"></b>
-                    </li>
-
-                </ul>
-            </div>
-
-
-            <div class="col-lg-4">
-                <ul class="list-unstyled">
-
-                    <li>
-                        <i class="ace-icon fa fa-caret-right blue"></i>
-                        Cran Fees: <b class="blue" id="SPCranFees"></b>
-                    </li>
-
-
-                    <li>
-                        <i class="ace-icon fa fa-caret-right blue"></i>
-                        Can Payments: <b class="blue" id="SPCranPayments"></b>
-                    </li>
-
-                </ul>
-            </div>
+            <table class="table table-bordered table-condensed center">
+                <tr class="table-header">
+                    <td>Total Invoices</td>
+                    <td>Total Payments</td>
+                    <td>Profit</td>
+                    <td>Outgoings</td>
+                    <td>Transformers Fees</td>
+                    <td>Transformers Payments</td>
+                    <td>Cran Fees</td>
+                    <td>Can Payments</td>
+                </tr>
+                <tr>
+                    <td id="SpTotalInvoices"></td>
+                    <td id="SpTotalPayments"></td>
+                    <td id="SPProfit"></td>
+                    <td id="SPOutgoings"></td>
+                    <td id="SpTransFees"></td>
+                    <td id="SpTransPayments"></td>
+                    <td id="SPCranFees"></td>
+                    <td id="SPCranPayments"></td>
+                </tr>
+            </table>
 
         </div>
 
@@ -151,6 +126,15 @@
                                             </tr>
                                         </thead>
                                         <tbody></tbody>
+                                        <tfoot>
+                                            <tr style="background-color:#dff0d8;color:#3c763d">
+                                                <td></td>
+                                                <td></td>
+                                                <td id="ClientSumInvoices"></td>
+                                                <td id="ClientSumPayments"></td>
+                                                <td id="ClientSumAmountDue"></td>
+                                            </tr>
+                                        </tfoot>
                                     </table>
                                 </div>
                             </div>
@@ -189,6 +173,15 @@
                                             </tr>
                                         </thead>
                                         <tbody></tbody>
+                                         <tfoot>
+                                            <tr style="background-color:#dff0d8;color:#3c763d">
+                                                <td></td>
+                                                <td></td>
+                                                <td id="TransSumInvoices"></td>
+                                                <td id="TransSumPayments"></td>
+                                                <td id="TransSumAmountDue"></td>
+                                            </tr>
+                                        </tfoot>
                                     </table>
                                 </div>
                             </div>
@@ -227,6 +220,7 @@
                                             </tr>
                                         </thead>
                                         <tbody></tbody>
+                                        
                                     </table>
                                 </div>
                             </div>
@@ -264,6 +258,13 @@
                                             </tr>
                                         </thead>
                                         <tbody></tbody>
+                                        <tfoot>
+                                            <tr style="background-color:#dff0d8;color:#3c763d">
+                                                <td></td>
+                                                <td></td>
+                                                <td id="OutSumAmount"></td>
+                                            </tr>
+                                        </tfoot>
                                     </table>
                                 </div>
                             </div>
@@ -278,9 +279,10 @@
     </div>
     <script src="/Scripts/sys/jquery.xml2json.min.js"></script>
     <script src="/Scripts/sys/numeral.min.js"></script>
+     <script src="../Scripts/lodash.core.js?v=1.50"></script>
     <script src="/Scripts/lz-string/lz-string.min.js"></script>
     <script src="/Scripts/sys/DataGridFilter.js"></script>
-    <script src="/Scripts/sys/SummaryList.js"></script>
+    <script src="/Scripts/sys/SummaryList.js?v=1.50"></script>
     <script src="/Scripts/select2/select2.min.js"></script>
     <script src="/Scripts/select2/select2-optinal.min.js"></script>
     <style>
