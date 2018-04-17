@@ -18,6 +18,7 @@
         #ui-id-2 {
             height: 500px;
         }
+
         @media print {
             .arrowed-right.arrowed-in {
                 padding: 10px 0;
@@ -25,8 +26,25 @@
                 width: 100%;
             }
         }
+
+        @media print {
+            /* your stylesheet for printing, eg.: */
+            .accordion-group .accordion-body.collapse {
+                height: auto;
+            }
+        }
+
+        .ui-accordion .ui-accordion-content {
+            border: 1px solid #cdd8e3;
+            border-top-width: 0;
+            padding: 0px;
+        }
+
+        .ui-accordion .ui-accordion-content {
+            overflow-x: hidden;
+        }
     </style>
-    <div class="breadcrumbs ace-save-state" id="breadcrumbs">
+    <div class="breadcrumbs ace-save-state hidden-print" id="breadcrumbs">
         <ul class="breadcrumb">
             <li>
                 <i class="ace-icon fa fa-home home-icon"></i>
@@ -37,7 +55,7 @@
     </div>
     <div class="page-content">
         <div class="page-header">
-            <%--<h1>Vat Reports</h1>--%>
+            <h1>Balances</h1>
         </div>
         <!-- search box -->
         <div class="row">
@@ -45,7 +63,7 @@
                 <div class="col-xs-12 col-md-12">
                     <div class="form-group">
                         <label class="col-sm-4 control-label no-padding-right" for="AddDate">Date from-to</label>
-                        <div class="col-sm-6">
+                        <div class="col-sm-6 hidden-print">
                             <input type="text" id="DateFrom" class="required col-md-4 col-xs-10 date-picker inline" data-date-format="dd-mm-yyyy" placeholder="dd-mm-yyyy" />
                             <input type="text" id="DateTo" class="required col-md-4 col-xs-10 date-picker inline" data-date-format="dd-mm-yyyy" placeholder="dd-mm-yyyy" />
                             <button id="btnSearch" class="btn btn-info btn-sm" type="button">
@@ -53,6 +71,7 @@
                                 Search
                             </button>
                         </div>
+
                         <div class="widget-toolbar hidden-480 hidden-print">
                             <a href="javascript:void(0);" id="printMe" title="Print">
                                 <i class="ace-icon fa fa-print fa-2x"></i>
@@ -60,9 +79,18 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="col-sm-6" style="display: none" id="DivDates">
+                    From :
+                    <label id="lblPrintFrom"></label>
+                    <br />
+                    To :
+                    <label id="lblPrintTo"></label>
+                </div>
+                
             </form>
         </div>
-         <div class="hr hr-24"></div>
+        <div class="hr hr-24"></div>
         <div class="row">
 
             <table class="table table-bordered table-condensed center">
@@ -127,7 +155,7 @@
                                         </thead>
                                         <tbody></tbody>
                                         <tfoot>
-                                            <tr style="background-color:#dff0d8;color:#3c763d">
+                                            <tr style="background-color: #dff0d8; color: #3c763d">
                                                 <td></td>
                                                 <td></td>
                                                 <td id="ClientSumInvoices"></td>
@@ -173,8 +201,8 @@
                                             </tr>
                                         </thead>
                                         <tbody></tbody>
-                                         <tfoot>
-                                            <tr style="background-color:#dff0d8;color:#3c763d">
+                                        <tfoot>
+                                            <tr style="background-color: #dff0d8; color: #3c763d">
                                                 <td></td>
                                                 <td></td>
                                                 <td id="TransSumInvoices"></td>
@@ -220,7 +248,15 @@
                                             </tr>
                                         </thead>
                                         <tbody></tbody>
-                                        
+                                        <tfoot>
+                                            <tr style="background-color: #dff0d8; color: #3c763d">
+                                                <td></td>
+                                                <td></td>
+                                                <td id="CrangeumInvoices"></td>
+                                                <td id="CrangeSumPayments"></td>
+                                                <td id="CrangeSumAmountDue"></td>
+                                            </tr>
+                                        </tfoot>
                                     </table>
                                 </div>
                             </div>
@@ -259,7 +295,7 @@
                                         </thead>
                                         <tbody></tbody>
                                         <tfoot>
-                                            <tr style="background-color:#dff0d8;color:#3c763d">
+                                            <tr style="background-color: #dff0d8; color: #3c763d">
                                                 <td></td>
                                                 <td></td>
                                                 <td id="OutSumAmount"></td>
@@ -279,7 +315,7 @@
     </div>
     <script src="/Scripts/sys/jquery.xml2json.min.js"></script>
     <script src="/Scripts/sys/numeral.min.js"></script>
-     <script src="../Scripts/lodash.core.js?v=1.50"></script>
+    <script src="../Scripts/lodash.core.js?v=1.50"></script>
     <script src="/Scripts/lz-string/lz-string.min.js"></script>
     <script src="/Scripts/sys/DataGridFilter.js"></script>
     <script src="/Scripts/sys/SummaryList.js?v=1.50"></script>

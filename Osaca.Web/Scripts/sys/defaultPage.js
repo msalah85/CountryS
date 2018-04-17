@@ -33,6 +33,7 @@ var goToWebPage = function () {
 
 // start login
 var userLogin = function () {
+    debugger;
     var pass = $("#passWord").val(), _user = $userN.val();
     if (_user !== "" && pass !== "") {
         var dto = JSON.stringify({ "text1": _user, "text2": pass });
@@ -71,6 +72,7 @@ $('#passWord').keypress(function (e) {
     //$btn.button('reset');
 });
 $("#loginBtn").click(function (e) {
+    debugger;
     //var $btn = $(this).button('loading');
     e.preventDefault();
     userLogin();

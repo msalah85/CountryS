@@ -181,9 +181,8 @@ public partial class api_data : System.Web.UI.Page
     public static object login(string text1, string text2)
     {
         // create filter paramters
-        //string _pass = EncryptDecryptString.Encrypt(text2, "Taj$$Key");
-        string[,] _params = { { "Username", text1 }, { "Password", text2 } };
-
+        string _pass = EncryptDecryptString.Encrypt(text2, "Taj$$Key");
+        string[,] _params = { { "Username", text1 }, { "Password", _pass } };
         // get all of data.
         var _ds = new Select().SelectLists("Clients_Login", _params);
         var dt = _ds.Tables[0];

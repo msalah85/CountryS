@@ -141,9 +141,7 @@ var pageManager = function () {
 
                     _valid = true;
 
-
                 
-
                 // Validate trasporter/Crane-Driver name 
                 $('#listItems tbody tr').each(function () {
                     var transporterCraneExpenseName = $(this).find("td:eq(1)").text().toLowerCase(),
@@ -169,7 +167,7 @@ var pageManager = function () {
                         return false;
                     }
 
-                }).promise().done(function () {                    
+                }).promise().done(function () {
                     // start save invoice.
                     if (_valid)
                         SaveDataMasterDetails(namesMaster, valuesMaster, namesDetails, valuesDetails);
@@ -344,7 +342,7 @@ var pageManager = function () {
                 var cstVal = $(this).find('td:eq(2) input').val(),
                     custVal = $(this).find('td:eq(3) input').val(),
                     totalVat = $(this).find('td:eq(4) input').val();
-                
+
                 _totalCost += numeral().unformat(cstVal && !isNaN(cstVal) ? cstVal : 0) * 1; // cost
                 _total4Cust += numeral().unformat(custVal && !isNaN(custVal) > 0 ? custVal : 0) * 1; // amount/customer
                 _totalVat += numeral().unformat(totalVat && !isNaN(totalVat) > 0 ? totalVat : 0) * 1; // vat
@@ -352,13 +350,11 @@ var pageManager = function () {
                 //} catch (err) { console.log(err); }
             });
 
-            _total4Cust = _total4Cust + _totalVat;
-
             // show total amount and profit.
-            $('#TotalAmount').text(numeral(_total4Cust).format('0,0.0')); // show invoice total
             $('#TotalProfit').text(numeral(_total4Cust - _totalCost).format('0,0.0')); // show invoice total
-
-
+            _total4Cust = _total4Cust + _totalVat;
+            $('#TotalAmount').text(numeral(_total4Cust).format('0,0.0')); // show invoice total
+            
             // show final save button.
             if (_total4Cust > 0) {
                 $('#SaveAll').removeClass('hidden');

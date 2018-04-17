@@ -28,10 +28,24 @@ var SummaryManager = function () {
                 autoHeight: false,
                 heightStyle: "content"
             });
+
             $('#printMe').click(function (e) {
                 e.preventDefault();
+                $("#ui-id-2").css("height", "unset");
+                $("#DivDates").show();
+                $("#lblPrintFrom").html($("#DateFrom").val());
+                $("#lblPrintTo").html($("#DateTo").val());
+
                 $('#sidebar').addClass('menu-min');
+
+                $('.ui-accordion-content').show();
+                $('.ui-state-active').addClass('ui-state-default').removeClass('ui-state-active');
+
                 window.print();
+
+                $('.ui-accordion-content').hide();
+                $("#DivDates").hide();
+                $("#ui-id-2").css("height", "500px;");
             });
             pageEvents();
             // init start and end date range
@@ -116,8 +130,8 @@ var SummaryManager = function () {
                              </tr>');
                 }).get();
 
-                if ($('#TransportersGrid tbody tr').length == 0)
-                    $('#TransportersGrid tbody').append(rows);
+                $('#TransportersGrid tbody tr').empty();
+                $('#TransportersGrid tbody').append(rows);
 
 
                 ///
@@ -129,8 +143,8 @@ var SummaryManager = function () {
                              <td>' + numeral(CalcAmountDue(v.TotalAmount, v.TotalPayments)).format('0,0.00') + '</td>\
                              </tr>');
                 }).get();
-                if ($('#CrangeGrid tbody tr').length == 0)
-                    $('#CrangeGrid tbody').append(rows_Crange);
+                $('#CrangeGrid tbody tr').empty();
+                $('#CrangeGrid tbody').append(rows_Crange);
 
                 ///
                 var rows_Outgoings = $(data.list3).map(function (i, v) {
@@ -139,8 +153,8 @@ var SummaryManager = function () {
                              <td>' + numeral(v.TotalAmount).format('0,0.00') + '</td>\
                              </tr>');
                 }).get();
-                if ($('#OutgoingsGrid tbody tr').length == 0)
-                    $('#OutgoingsGrid tbody').append(rows_Outgoings);
+                $('#OutgoingsGrid tbody tr').empty();
+                $('#OutgoingsGrid tbody').append(rows_Outgoings);
 
                 // bind lables.
                 $("#SpTotalInvoices").html(numeral(data.list4.TotalInvoices).format('0,0.00'));
@@ -195,54 +209,82 @@ var SummaryManager = function () {
         },
 
         UpdateTransSummaryFooter = function (data) {
-            var _Trans_TotalInvoices = _.filter(_.map(data.list1, "TotalAmount"));
-            var _Trans_Payments = _.filter(_.map(data.list1, "TotalPayments"));
-            var FormatedAr_TotalInvoices = [];
-            var FormatedAr_Payments = [];
-            for (var i = 0; i < _Trans_TotalInvoices.length; i++) {
-                FormatedAr_TotalInvoices.push(numeral().unformat(_Trans_TotalInvoices[i]) * 1);
-            }
-            for (var i = 0; i < _Trans_Payments.length; i++) {
-                FormatedAr_Payments.push(numeral().unformat(_Trans_Payments[i]) * 1);
-            }
-            var sumTotalInvoices = _.reduce(FormatedAr_TotalInvoices, function (sum, n) {
-                return sum + n;
-            }, 0);
-            var sumPayments = _.reduce(FormatedAr_Payments, function (sum, n) {
-                return sum + n;
-            }, 0);
+            if (data.list1) {
+                var _Trans_TotalInvoices = _.filter(_.map(data.list1, "TotalAmount"));
+                var _Trans_Payments = _.filter(_.map(data.list1, "TotalPayments"));
+                var FormatedAr_TotalInvoices = [];
+                var FormatedAr_Payments = [];
+                for (var i = 0; i < _Trans_TotalInvoices.length; i++) {
+                    FormatedAr_TotalInvoices.push(numeral().unformat(_Trans_TotalInvoices[i]) * 1);
+                }
+                for (var i = 0; i < _Trans_Payments.length; i++) {
+                    FormatedAr_Payments.push(numeral().unformat(_Trans_Payments[i]) * 1);
+                }
+                var sumTotalInvoices = _.reduce(FormatedAr_TotalInvoices, function (sum, n) {
+                    return sum + n;
+                }, 0);
+                var sumPayments = _.reduce(FormatedAr_Payments, function (sum, n) {
+                    return sum + n;
+                }, 0);
 
-            if (_Trans_TotalInvoices.length == 0) {
-                sumTotalInvoices = data.list1.TotalInvoices;
-                sumPayments = data.list1.TotalPayments;
-            }
+                if (_Trans_TotalInvoices.length == 0) {
+                    sumTotalInvoices = data.list1.TotalInvoices;
+                    sumPayments = data.list1.TotalPayments;
+                }
 
-            $("#TransSumAmountDue").html(numeral(sumTotalInvoices - sumPayments).format('0,0.00'));
-            $("#TransSumInvoices").html(numeral(sumTotalInvoices).format('0,0.00'));
-            $("#TransSumPayments").html(numeral(sumPayments).format('0,0.00'));
+                $("#TransSumAmountDue").html(numeral(sumTotalInvoices - sumPayments).format('0,0.00'));
+                $("#TransSumInvoices").html(numeral(sumTotalInvoices).format('0,0.00'));
+                $("#TransSumPayments").html(numeral(sumPayments).format('0,0.00'));
+            }
 
         },
 
         UpdateCrangeSummaryFooter = function (data) {
-            //$("#CrangeSumAmountDue").html(numeral(data.list2.TotalAmount - data.list2.TotalPayments).format('0,0.00'));
-            //$("#CrangeSumInvoices").html(numeral(data.list2.TotalAmount).format('0,0.00'));
-            //$("#CrangeSumPayments").html(numeral(data.list2.TotalPayments).format('0,0.00'));
+            if (data.list2) {
+                var _Crane_TotalInvoices = _.filter(_.map(data.list2, "TotalAmount"));
+                var _Crane_Payments = _.filter(_.map(data.list2, "TotalPayments"));
+                var FormatedAr_TotalInvoices = [];
+                var FormatedAr_Payments = [];
+                for (var i = 0; i < _Crane_TotalInvoices.length; i++) {
+                    FormatedAr_TotalInvoices.push(numeral().unformat(_Crane_TotalInvoices[i]) * 1);
+                }
+                for (var i = 0; i < _Crane_Payments.length; i++) {
+                    FormatedAr_Payments.push(numeral().unformat(_Crane_Payments[i]) * 1);
+                }
+                var sumTotalInvoices = _.reduce(FormatedAr_TotalInvoices, function (sum, n) {
+                    return sum + n;
+                }, 0);
+                var sumPayments = _.reduce(FormatedAr_Payments, function (sum, n) {
+                    return sum + n;
+                }, 0);
+
+                if (_Crane_TotalInvoices.length == 0) {
+                    sumTotalInvoices = data.list2.TotalAmount;
+                    sumPayments = data.list2.TotalPayments;
+                }
+
+                $("#CrangeSumAmountDue").html(numeral(sumTotalInvoices - sumPayments).format('0,0.00'));
+                $("#CrangeumInvoices").html(numeral(sumTotalInvoices).format('0,0.00'));
+                $("#CrangeSumPayments").html(numeral(sumPayments).format('0,0.00'));
+            }
 
         }, UpdateOutgoingsSummaryFooter = function (data) {
-            var _Out_Payments = _.filter(_.map(data.list3, "TotalAmount"));
-            var FormatedAr_TotalAmount = [];
-            for (var i = 0; i < _Out_Payments.length; i++) {
-                FormatedAr_TotalAmount.push(numeral().unformat(_Out_Payments[i]) * 1);
-            }
-            var sumTotalInvoices = _.reduce(FormatedAr_TotalAmount, function (sum, n) {
-                return sum + n;
-            }, 0);
+            if (data.list3) {
+                var _Out_Payments = _.filter(_.map(data.list3, "TotalAmount"));
+                var FormatedAr_TotalAmount = [];
+                for (var i = 0; i < _Out_Payments.length; i++) {
+                    FormatedAr_TotalAmount.push(numeral().unformat(_Out_Payments[i]) * 1);
+                }
+                var sumTotalInvoices = _.reduce(FormatedAr_TotalAmount, function (sum, n) {
+                    return sum + n;
+                }, 0);
 
-            if (_Out_Payments.length == 0) {
-                sumTotalInvoices = data.list3.TotalAmount;
-            }
+                if (_Out_Payments.length == 0) {
+                    sumTotalInvoices = data.list3.TotalAmount;
+                }
 
-            $("#OutSumAmount").html(numeral(sumTotalInvoices).format('0,0.00'));
+                $("#OutSumAmount").html(numeral(sumTotalInvoices).format('0,0.00'));
+            }
         }
     return {
         Init: Init

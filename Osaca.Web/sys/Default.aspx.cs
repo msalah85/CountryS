@@ -20,10 +20,10 @@ public partial class sys_Default : Page
     {
         bool login_state = false;
 
-        //string _pass = EncryptDecryptString.Encrypt(text2, "Taj$$Key");
+        string _pass = EncryptDecryptString.Encrypt(text2, "Taj$$Key");
 
         // create filter paramters
-        string[,] _params = { { "UserName", text1 }, { "Password", text2 } };
+        string[,] _params = { { "UserName", text1 }, { "Password", _pass } };
 
         // get all of data.
         var _ds = new Select().SelectLists("Users_Login", _params);
